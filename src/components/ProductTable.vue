@@ -132,8 +132,12 @@ const fetchData = async (url) => {
         });
 
         page.value = res.data.current_page
-        nextBtnUrl.value = res.data.links[res.data.links.length - 1].url
-        prevBtnUrl.value = res.data.links[0].url
+
+        const nextUrl = res.data.links[res.data.links.length - 1].url
+        const prevUrl = res.data.links[0].url
+        
+        nextBtnUrl.value = nextUrl.replace(/^http:\/\//i, 'https://');
+        prevBtnUrl.value = prevUrl.replace(/^http:\/\//i, 'https://');
         products.value = res.data.data
 
         if (isLoading.value){
