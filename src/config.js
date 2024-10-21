@@ -1,0 +1,1 @@
+export const server_url = "https://woosh-2.onrender.com/api"
